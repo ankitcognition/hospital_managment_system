@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Registration & Patient Viewing Completed**
+**Patient Registration, Viewing & Search Completed**
 
 ### Completed Features
 
@@ -26,10 +26,12 @@ This project is part of my Python learning journey and is being developed increm
 * View all registered patients
 * Handle empty patient records
 * Formatted patient information display
+* Search patient by Patient ID
+* Display searched patient information
+* Handle patient not found cases
 
 ### Possible Improvements
 
-* Search patient
 * Update patient information
 * Delete patient records
 * Improve input validation
@@ -101,7 +103,8 @@ This project is being built to strengthen understanding of:
 * [x] View All Patients
 * [x] Handle empty patient records
 * [x] Formatted patient information
-* [ ] Search Patient
+* [x] Search Patient
+* [x] Handle patient not found
 * [ ] Update Patient
 * [ ] Delete Patient
 * [ ] Doctor Management
