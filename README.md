@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Registration Module Completed**
+**Patient Registration & Patient Viewing Completed**
 
 ### Completed Features
 
@@ -23,10 +23,12 @@ This project is part of my Python learning journey and is being developed increm
 * CSV file handling
 * Patient data storage using CSV
 * Append-based patient record storage
+* View all registered patients
+* Handle empty patient records
+* Formatted patient information display
 
 ### Possible Improvements
 
-* View all patients
 * Search patient
 * Update patient information
 * Delete patient records
@@ -96,7 +98,9 @@ This project is being built to strengthen understanding of:
 * [x] Patient input handling
 * [x] Input validation
 * [x] CSV data storage
-* [ ] View All Patients
+* [x] View All Patients
+* [x] Handle empty patient records
+* [x] Formatted patient information
 * [ ] Search Patient
 * [ ] Update Patient
 * [ ] Delete Patient

@@ -1,5 +1,6 @@
 import csv
 
+# setup
 with open("patients.csv", "w", newline="") as file:
     writer = csv.writer(file)
 
@@ -13,15 +14,16 @@ with open("patients.csv", "w", newline="") as file:
         "Disease",
         "Admission Date"
     ])
-    
+ 
+# add patient function   
 def add_patient():
      try:
       patient_id=int(input("ENTER PATIENT ID: "))
-      patient_name=input("ENTER PATIENT NAME: ")
+      patient_name=input("ENTER PATIENT NAME: ").title()
       patient_age=int(input("ENTER PATIENT AGE: "))
-      patient_gender=input("ENTER PATIENT GENDER: ")
+      patient_gender=input("ENTER PATIENT GENDER: ").upper()
       patient_phone=input("ENTER PATIENT PHONE NUMBER: ")
-      patient_blood=input("ENTER PATIENT BLOOD GROUP: ")
+      patient_blood=input("ENTER PATIENT BLOOD GROUP: ").upper()
       patient_disease=input("ENTER PATIENT DISEASE: ")
       patient_admission_date=input("ENTER PATIENT ADMISSION DATE: ")
      except ValueError:
@@ -40,6 +42,36 @@ def add_patient():
             patient_disease,
             patient_admission_date
         ])
+        print("PATIENT ADDED SUCCESSFULLY")
+        
+# view patients function
+def view_patients():
+    found=False
+    with open("patients.csv","r") as file:
+        reader=csv.reader(file)
+        next(reader)
+        print("="*35)
+        print("    REGISTERED PATIENTS")
+        for patient in reader:
+            found=True
+            print("="*35) 
+            print(f"PATIENT_ID: {patient[0]}")
+            print(f"PATIENT_NAME: {patient[1]}")
+            print(f"PATIENT_AGE: {patient[2]}")
+            print(f"PATIENT_GENDER: {patient[3]}")
+            print(f"PATIENT_PHONENO.: {patient[4]}")
+            print(f"PATIENT_BLOODGROUP: {patient[5]}")
+            print(f"PATIENT_DISEASE: {patient[6]}")
+            print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+            print("="*35)
+            
+        if not found:
+            print("NO REGISTERED PATIENTS AT THE MOMENT ")
+
+            
+
+        
+        
             
         
         
