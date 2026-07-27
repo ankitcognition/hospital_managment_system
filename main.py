@@ -401,6 +401,27 @@ def search_doctor():
                 print("DOCTOR NOT FOUND")
     except ValueError:
         print("ENTER A VALID DOCTOR ID")
+        
+# view doctors
+def view_doctors():
+        found=False
+        with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            print("="*35)
+            print("    REGISTERED DOCTORS")
+            next(reader)
+            for doctor in reader:
+                found=True
+                print("="*35)
+                print(f"DOCTOR_ID: {doctor[0]}")
+                print(f"DOCTOR_NAME: {doctor[1]}")
+                print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+                print("="*35)
+                
+            if not found:
+                print("NO REGISTERED DOCTORS AT THE MOMENT")
+            
+            
                     
         
         

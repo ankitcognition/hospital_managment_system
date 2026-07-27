@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Management Completed | Doctor Registration, Viewing, and Search In Progress**
+**Patient Management Completed | Doctor Management In Progress**
 
 ## Completed Features
 
@@ -44,13 +44,15 @@ This project is part of my Python learning journey and is being developed increm
 * Search doctor by Doctor ID
 * Display searched doctor information
 * Handle doctor not found cases
+* View all registered doctors
+* Handle empty doctor records
+* Display formatted doctor information
 
 ## Possible Improvements
 
 * Improve input validation
 * Add duplicate patient ID prevention
 * Add duplicate doctor ID prevention
-* Add view all doctors
 * Add doctor update
 * Add doctor deletion
 * Add appointment management
@@ -123,7 +125,9 @@ This project is being built to strengthen understanding of:
 * [x] Doctor CSV data storage
 * [x] Search Doctor
 * [x] Handle doctor not found
-* [ ] View All Doctors
+* [x] View All Doctors
+* [x] Handle empty doctor records
+* [x] Formatted doctor information
 * [ ] Update Doctor
 * [ ] Delete Doctor
 * [ ] Appointment Management
