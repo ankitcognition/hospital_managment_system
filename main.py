@@ -24,7 +24,7 @@ def add_patient():
       patient_gender=input("ENTER PATIENT GENDER: ").upper()
       patient_phone=input("ENTER PATIENT PHONE NUMBER: ")
       patient_blood=input("ENTER PATIENT BLOOD GROUP: ").upper()
-      patient_disease=input("ENTER PATIENT DISEASE: ")
+      patient_disease=input("ENTER PATIENT DISEASE: ").title()
       patient_admission_date=input("ENTER PATIENT ADMISSION DATE: ")
      except ValueError:
          print("ENTER A VALID VALUE IN REQUIRED SECTION")
@@ -79,6 +79,8 @@ def search_patient():
            for patient in reader:
                if int(patient[0])==patient_id:
                     found=True
+                    print("="*35)
+                    print("PATIENT FOUND")
                     print("="*35) 
                     print(f"PATIENT_ID: {patient[0]}")
                     print(f"PATIENT_NAME: {patient[1]}")
@@ -97,8 +99,201 @@ def search_patient():
         print("ENTER A VALID PATIENT ID")
         return
 
-                   
-       
+# update patient
+def update_patient():
+    try:
+        found=False
+        patient_id=int(input("ENTER PATIENT ID TO UPDATE: "))
+        with open("patients.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            patients=list(reader)
+            for patient in patients:
+                if int(patient[0])==patient_id:
+                    found=True
+                    print("="*35)
+                    print("PATIENT FOUND")
+                    print(f"PATIENT_ID: {patient[0]}")
+                    print(f"PATIENT_NAME: {patient[1]}")
+                    print(f"PATIENT_AGE: {patient[2]}")
+                    print(f"PATIENT_GENDER: {patient[3]}")
+                    print(f"PATIENT_PHONENO.: {patient[4]}")
+                    print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                    print(f"PATIENT_DISEASE: {patient[6]}")
+                    print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("PATIENT NOT FOUND")
+                return
+    except ValueError:
+        print("ENTER A VALID PATIENT ID")
+        return
+    while True:
+        print("="*35)
+        print("    WHAT YOU WANT TO UPDATE?: ")
+        print("="*35)
+        print("1) NAME")
+        print("2) AGE")
+        print("3) GENDER")
+        print("4) PHONE")
+        print("5) BLOOD GROUP")
+        print("6) DISEASE")
+        print("7) ADMISSION DATE")
+        print("8) CANCEL")
+        print("="*35)
+        try:
+         choice=int(input("ENTER YOUR CHOICE(1-8): "))
+         if choice==1:
+            try:
+                new_name=input("ENTER PATIENT'S NEW NAME: ")
+                patient[1]=new_name
+                print("NAME UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID PATIENT NAME")
+                return     
+         elif choice==2:
+            try:
+                new_age=int(input("ENTER PATIENT'S NEW AGE: "))
+                patient[2]=new_age
+                print("AGE UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID AGE")
+                return       
+         elif choice==3:
+            try:
+                new_gender=input("ENTER PATEINT'S NEW GENDER: ").upper()
+                patient[3]=new_gender
+                print("GENDER UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID AGE")
+                return       
+         elif choice==4:
+            try:
+                new_phoneno=input("ENTER PATEINT'S NEW PHONE NUMBER: ")
+                patient[4]=new_phoneno
+                print("PHONE NUMBER UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID PHONE NUMBER")
+                return                      
+         elif choice==5:
+            try:
+                new_bloodgrp=input("ENTER PATEINT'S NEW BLOODGROUP: ").upper()
+                patient[5]=new_bloodgrp
+                print("BLOODGROUP UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID BLOODGROUP")
+                return
+         elif choice==6:
+            try:
+                new_disease=input("ENTER PATEINT'S NEW DISEASE: ").title()
+                patient[6]=new_disease
+                print("DISEASE UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID DISEASE")
+                return
+         elif choice==7:
+            try:
+                new_admission_date=input("ENTER PATEINT'S NEW ADMISSIONN DATE: ")
+                patient[7]=new_admission_date
+                print("ADMISSION DATE UPDATED SUCCESSFULLY")
+                print("="*35)
+                print(f"PATIENT_ID: {patient[0]}")
+                print(f"PATIENT_NAME: {patient[1]}")
+                print(f"PATIENT_AGE: {patient[2]}")
+                print(f"PATIENT_GENDER: {patient[3]}")
+                print(f"PATIENT_PHONENO.: {patient[4]}")
+                print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                print(f"PATIENT_DISEASE: {patient[6]}")
+                print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                print("="*35)
+            except ValueError:
+                print("ENTER A VALID DATE")
+                return
+         elif choice==8:
+             break
+         else:
+             print("ENTER A CHOICE BETWEEN (1-8)")
+             continue
+        
+        except ValueError:
+            print("ENTER A VALID CHOICE")
+            continue
+         
+    with open("patients.csv", "w", newline="") as file:
+     writer = csv.writer(file)
+     writer.writerow([
+        "Patient ID",
+        "Name",
+        "Age",
+        "Gender",
+        "Phone",
+        "Blood Group",
+        "Disease",
+        "Admission Date"
+    ])
+     for patient in patients:
+        writer.writerow(patient)
 
             
 

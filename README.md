@@ -6,9 +6,9 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Registration, Viewing & Search Completed**
+**Patient Registration, Viewing, Search, and Update Completed**
 
-### Completed Features
+## Completed Features
 
 * Patient registration
 * Patient ID input
@@ -29,31 +29,26 @@ This project is part of my Python learning journey and is being developed increm
 * Search patient by Patient ID
 * Display searched patient information
 * Handle patient not found cases
-
-### Possible Improvements
-
 * Update patient information
+* Search and edit existing patient records
+* Rewrite updated records back to CSV
+
+## Possible Improvements
+
 * Delete patient records
 * Improve input validation
 * Add doctor management
 * Add appointment management
 * Add billing system
 * Add hospital statistics
+* Improve date validation
+* Add menu-driven update options for all fields
+* Add duplicate patient ID prevention
 
 ## Technologies Used
 
 * Python 3
 * CSV
-
-## Project Structure
-
-```text
-Hospital-Management-System/
-│
-├── main.py
-├── patients.csv
-└── README.md
-```
 
 ## How to Run
 
@@ -105,7 +100,7 @@ This project is being built to strengthen understanding of:
 * [x] Formatted patient information
 * [x] Search Patient
 * [x] Handle patient not found
-* [ ] Update Patient
+* [x] Update Patient
 * [ ] Delete Patient
 * [ ] Doctor Management
 * [ ] Appointment Management
