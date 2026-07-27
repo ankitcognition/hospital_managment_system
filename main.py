@@ -420,6 +420,86 @@ def view_doctors():
                 
             if not found:
                 print("NO REGISTERED DOCTORS AT THE MOMENT")
+                
+# update doctor
+def update_doctor():
+    try:
+        found=False
+        doctor_id=int(input("ENTER DOCTOR'S ID TO UPDATE: "))
+        with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            doctors=list(reader)
+            for doctor in doctors:
+                if int(doctor[0])==doctor_id:
+                    found=True
+                    print("="*35)
+                    print(f"DOCTOR_ID: {doctor[0]}")
+                    print(f"DOCTOR_NAME: {doctor[1]}")
+                    print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+                    print("="*35)
+            if not found:
+                print("DOCTOR NOT FOUND")
+    except ValueError:
+        print("ENTER A VALID DOCTOR ID")
+        
+    while True:
+        print("="*35)
+        print("    WHAT YOU WANT TO UPDATE")
+        print("="*35)
+        print("1)DOCTOR_ID")
+        print("2) DOCTOR_NAME")
+        print("3)DOCTOR_SPECIALIZATION")
+        try:
+           choice=int(input("ENTER YOUR CHOICE(1-3): "))
+           if choice==1:
+              new_id=int(input("ENTER DOCTOR'S NEW ID: "))
+              doctor[0]=new_id
+              print("DOCTOR ID UPDATED SUCCESSFULLY")
+              print("="*35)
+              print(f"DOCTOR_ID: {doctor[0]}")
+              print(f"DOCTOR_NAME: {doctor[1]}")
+              print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+              print("="*35)
+              break
+           elif choice==2:
+               new_name=input("ENTER DOCTOR'S NEW NAME: ")
+               doctor[1]=new_name
+               print("DOCTOR NAME UPDATED SUCCESSFULLY")
+               print("="*35)
+               print(f"DOCTOR_ID: {doctor[0]}")
+               print(f"DOCTOR_NAME: {doctor[1]}")
+               print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+               print("="*35)
+               break
+           elif choice==3:
+               new_specialization=input("ENTER DOCTOR'S NEW SPECIALIZATION: ")
+               doctor[2]=new_specialization
+               print("DOCTOR'S SPECIALIZATION UPDATED")
+               print("="*35)
+               print(f"DOCTOR_ID: {doctor[0]}")
+               print(f"DOCTOR_NAME: {doctor[1]}")
+               print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+               print("="*35)
+               break
+           else:
+               print("ENTER A CHOICE BETWEEN(1-3)ONLY")
+               continue
+        except ValueError:
+            print("ENTER A VALID VALUE")
+            continue
+    with open("doctors.csv", "w", newline="") as file:
+         writer = csv.writer(file)
+         writer.writerow([
+            "Doctor Id",
+            "Doctor Name",
+            "Doctor Specialization"
+        ])
+         for doctor in doctors:
+            writer.writerow(doctor)    
+        
+             
+
             
             
                     

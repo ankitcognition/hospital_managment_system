@@ -47,18 +47,28 @@ This project is part of my Python learning journey and is being developed increm
 * View all registered doctors
 * Handle empty doctor records
 * Display formatted doctor information
+* Search doctor by ID for update
+* Handle doctor not found during update
+* Display doctor menu (ID / Name / Specialization)
+* Update menu choice validation
+* Update doctor ID
+* Update doctor name
+* Update doctor specialization
+* Display updated doctor information
+* Rewrite doctor CSV header after update
+* Rewrite updated doctor records back to CSV
 
 ## Possible Improvements
 
 * Improve input validation
 * Add duplicate patient ID prevention
 * Add duplicate doctor ID prevention
-* Add doctor update
 * Add doctor deletion
 * Add appointment management
 * Add billing system
 * Add hospital statistics
 * Improve date validation
+* Fix update doctor crash when doctor ID is not found
 
 ## Technologies Used
 
@@ -128,7 +138,13 @@ This project is being built to strengthen understanding of:
 * [x] View All Doctors
 * [x] Handle empty doctor records
 * [x] Formatted doctor information
-* [ ] Update Doctor
+* [x] Search doctor by ID for update
+* [x] Handle doctor not found during update
+* [x] Doctor update menu
+* [x] Update doctor ID
+* [x] Update doctor name
+* [x] Update doctor specialization
+* [x] Rewrite doctor CSV after update
 * [ ] Delete Doctor
 * [ ] Appointment Management
 * [ ] Billing System
