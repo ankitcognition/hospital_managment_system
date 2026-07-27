@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Registration, Viewing, Search, Update, and Delete Completed**
+**Patient Management Completed | Doctor Registration In Progress**
 
 ## Completed Features
 
@@ -34,18 +34,27 @@ This project is part of my Python learning journey and is being developed increm
 * Rewrite updated records back to CSV
 * Delete patient records by Patient ID
 * Delete confirmation before removing a patient
-* Handle patient not found cases during deletion
 * Rewrite remaining patient records back to CSV after deletion
+* Doctor CSV file setup
+* Doctor ID input
+* Doctor name input
+* Doctor specialization input
+* Doctor ID input validation
+* Append-based doctor record storage
 
 ## Possible Improvements
 
 * Improve input validation
-* Add doctor management
+* Add duplicate patient ID prevention
+* Add duplicate doctor ID prevention
+* Add doctor viewing
+* Add doctor search
+* Add doctor update
+* Add doctor deletion
 * Add appointment management
 * Add billing system
 * Add hospital statistics
 * Improve date validation
-* Add duplicate patient ID prevention
 
 ## Technologies Used
 
@@ -106,7 +115,14 @@ This project is being built to strengthen understanding of:
 * [x] Delete Patient
 * [x] Delete confirmation
 * [x] Rewrite CSV after patient deletion
-* [ ] Doctor Management
+* [x] Doctor CSV file setup
+* [x] Doctor registration
+* [x] Doctor input validation
+* [x] Doctor CSV data storage
+* [ ] View Doctors
+* [ ] Search Doctor
+* [ ] Update Doctor
+* [ ] Delete Doctor
 * [ ] Appointment Management
 * [ ] Billing System
 * [ ] Hospital Statistics

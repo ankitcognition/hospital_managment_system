@@ -1,6 +1,6 @@
 import csv
 
-# setup
+# patients setup
 with open("patients.csv", "w", newline="") as file:
     writer = csv.writer(file)
 
@@ -353,7 +353,36 @@ def delete_patient():
             print("ENTER EXACTLY(Y/N)")
             continue
         
-#
+#doctors setup
+with open("doctors.csv","w") as file:
+    writer=csv.writer(file)
+    writer.writerow([
+        "Doctor Id",
+        "Doctor Name",
+        "Doctor Specialization"
+    ])
+    
+# add doctor
+def add_doctor():
+    try:
+        doctor_id=int(input("ENTER DOCTOR ID: "))
+        doctor_name=input("ENTER DOCTOR NAME: ")
+        doctor_specialization=input("ENTER DOCTOR SPECIALIZATION: ")
+    except ValueError:
+        print("ENTER A VALID DOCTOR ID")
+        return
+    with open("doctors.csv","a") as file:
+        writer=csv.writer(file)
+        writer.writerow([
+            doctor_id,
+            doctor_name,
+            doctor_specialization
+        ])
+        print("DOCTOR ADDED SUCCESSFULLY")
+            
+                       
+    
+    
 
     
 
