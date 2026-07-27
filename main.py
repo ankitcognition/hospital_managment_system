@@ -379,6 +379,31 @@ def add_doctor():
             doctor_specialization
         ])
         print("DOCTOR ADDED SUCCESSFULLY")
+        
+#search doctor
+def search_doctor():
+    try:
+        found=False
+        doctor_id=int(input("ENTER DOCTOR'S ID: "))
+        with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            for doctor in reader:
+                if int(doctor[0])==doctor_id:
+                    found=True
+                    print("="*35)
+                    print(f"DOCTOR_ID: {doctor[0]}")
+                    print(f"DOCTOR_NAME: {doctor[1]}")
+                    print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("DOCTOR NOT FOUND")
+    except ValueError:
+        print("ENTER A VALID DOCTOR ID")
+                    
+        
+        
             
                        
     
