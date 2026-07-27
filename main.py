@@ -496,7 +496,55 @@ def update_doctor():
             "Doctor Specialization"
         ])
          for doctor in doctors:
-            writer.writerow(doctor)    
+            writer.writerow(doctor)
+            
+# delete doctor
+def delete_doctor():
+    try:
+        found=False
+        doctor_id=int(input("ENTER DOCTOR ID: "))
+        with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            doctors=list(reader)
+            for doctor in doctors:
+                if int(doctor[0])==doctor_id:
+                    found=True
+                    print("DOCTOR FOUND")
+                    print("="*35)
+                    print(f"DOCTOR_ID: {doctor[0]}")
+                    print(f"DOCTOR_NAME: {doctor[1]}")
+                    print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("DOCTOR NOT FOUND")
+    except ValueError:
+         print("ENTER A VALID DOCTOR ID")
+         return
+                    
+    while True:
+        choice=input("ARE YOU SURE YOU WANT TO DLETE THIS DOCTOR?(Y/N)").upper()
+        if choice=="Y":
+            doctors.remove(doctor)
+            with open("doctors.csv", "w", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow([
+                    "Doctor Id",
+                    "Doctor Name",
+                    "Doctor Specialization"      
+                ])
+                for doctor in doctors:
+                    writer.writerow(doctor)
+            print("DOCTOR DELETED SUCCESSFULLY")
+            break
+        elif choice=="N":
+            print("DELETION CANCELED")
+            break
+        else:
+            print("ENTER EXACTLY (Y/N)")
+            continue
+         
         
              
 
