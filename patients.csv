@@ -1,2 +1,1 @@
 Patient ID,Name,Age,Gender,Phone,Blood Group,Disease,Admission Date
-12345,Ankit Singh,17,<built-in method capitalize of str object at 0x0000026B9F703F90>,7439004502,<built-in method capitalize of str object at 0x0000026B9F7185D0>,fatty liver,26/07/26

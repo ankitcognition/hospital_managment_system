@@ -294,6 +294,72 @@ def update_patient():
     ])
      for patient in patients:
         writer.writerow(patient)
+        
+# delete patient function
+def delete_patient():
+    try:
+        found=False
+        patient_id=int(input("ENTER PATIENT ID YOU WANT TO DELETE: "))
+        with open("patients.csv","r") as file:
+                reader=csv.reader(file)
+                next(reader)
+                patients=list(reader)
+                for patient in patients:
+                    if int(patient[0])==patient_id:
+                        found=True
+                        print("="*35)
+                        print("PATIENT FOUND")
+                        print(f"PATIENT_ID: {patient[0]}")
+                        print(f"PATIENT_NAME: {patient[1]}")
+                        print(f"PATIENT_AGE: {patient[2]}")
+                        print(f"PATIENT_GENDER: {patient[3]}")
+                        print(f"PATIENT_PHONENO.: {patient[4]}")
+                        print(f"PATIENT_BLOODGROUP: {patient[5]}")
+                        print(f"PATIENT_DISEASE: {patient[6]}")
+                        print(f"PATIENT_ADMISSION_DATE: {patient[7]}")
+                        print("="*35)
+                        break
+                if not found:
+                        print("PATIENT NOT FOUND")
+                        return
+    except ValueError:
+            print("ENTER A VALID PATIENT ID")
+            return
+    while True:
+        choice=input("ARE YOU SURE YOU WANT TO DELETE THIS PATIENT?(Y/N): ").upper()
+        if choice=="Y":
+            patients.remove(patient)
+            with open("patients.csv", "w", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow([
+                        "Patient ID",
+                        "Name",
+                        "Age",
+                        "Gender",
+                        "Phone",
+                        "Blood Group",
+                        "Disease",
+                        "Admission Date"
+                    ])
+                for patient in patients:
+                    writer.writerow(patient)
+                print("PATIENT DELETED SUCCESSFULLY")
+                break
+        elif choice=="N":
+            print("DELETION CANCELED")
+            break
+            
+        else:
+            print("ENTER EXACTLY(Y/N)")
+            continue
+        
+#
+
+    
+
+            
+        
+        
 
             
 
