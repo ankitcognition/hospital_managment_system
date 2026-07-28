@@ -84,6 +84,16 @@ This project is part of my Python learning journey and is being developed increm
 * Search appointment by Appointment ID
 * Display searched appointment information
 * Handle appointment not found cases
+* Search appointment by ID for update
+* Handle appointment not found during update
+* Display appointment update menu (Date / Time / Status)
+* Update menu choice validation
+* Update appointment date
+* Update appointment time
+* Update appointment status
+* Display updated appointment information
+* Rewrite appointment CSV header after update
+* Rewrite updated appointment records back to CSV
 
 ## Possible Improvements
 
@@ -186,7 +196,13 @@ This project is being built to strengthen understanding of:
 * [x] Formatted appointment information
 * [x] Search Appointment
 * [x] Handle appointment not found
-* [ ] Update Appointment
+* [x] Search appointment by ID for update
+* [x] Handle appointment not found during update
+* [x] Appointment update menu
+* [x] Update appointment date
+* [x] Update appointment time
+* [x] Update appointment status
+* [x] Rewrite appointment CSV after update
 * [ ] Delete Appointment
 * [ ] Billing System
 * [ ] Hospital Statistics

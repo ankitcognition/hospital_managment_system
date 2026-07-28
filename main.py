@@ -439,10 +439,13 @@ def update_doctor():
                     print(f"DOCTOR_NAME: {doctor[1]}")
                     print(f"DOCTOR_SPECIALIZATION: {doctor[2]}")
                     print("="*35)
+                    break
             if not found:
                 print("DOCTOR NOT FOUND")
+                return
     except ValueError:
         print("ENTER A VALID DOCTOR ID")
+        return
         
     while True:
         print("="*35)
@@ -476,7 +479,7 @@ def update_doctor():
            elif choice==3:
                new_specialization=input("ENTER DOCTOR'S NEW SPECIALIZATION: ")
                doctor[2]=new_specialization
-               print("DOCTOR'S SPECIALIZATION UPDATED")
+               print("DOCTOR'S SPECIALIZATION UPDATED SUCCESSFULLY")
                print("="*35)
                print(f"DOCTOR_ID: {doctor[0]}")
                print(f"DOCTOR_NAME: {doctor[1]}")
@@ -674,7 +677,105 @@ def search_appointment():
     except ValueError:
         print("ENTER A VALID APPOINTMENT ID")
         return
-
+    
+# update appointment function
+def update_appointment():
+    try:
+        found=False
+        appointment_id=int(input("ENTER APPOINTMENT ID TO UPDATE: "))
+        with open("appointments.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            appointments=list(reader)
+            for appointment in appointments:
+                if int(appointment[0])==appointment_id:
+                    found=True
+                    print("="*35)
+                    print(f"APPOINTMENT_ID: {appointment[0]}")
+                    print(f"PATIENT_ID: {appointment[1]}")
+                    print(f"DOCTOR_ID: {appointment[2]}")
+                    print(f"APPOINTMENT_DATE: {appointment[3]}")
+                    print(f"APPOINTMENT_TIME: {appointment[4]}")
+                    print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                    print("="*35)
+                    break
+            if not found:
+                    print("APPOINTMENT NOT FOUND")
+                    return
+    except ValueError:
+            print("ENTER A VALID APPOINTMENT ID")
+            return
+        
+    while True:
+            print("="*35)
+            print("    WHAT YOU WANT TO UPDATE")
+            print("="*35)
+            print("1)APPOINTMENT_DATE")
+            print("2) APPOINTMENT_TIME")
+            print("3)APPOINTMENT_STATUS")
+            
+            try: 
+                choice=int(input("ENTER YOUR CHOICE(1-3): "))
+                if choice==1:
+                  new_date=input("ENTER NEW APPOINTMENT DATE: ")
+                  appointment[3]=new_date
+                  print("APPOINTMENT DATE UPDATED SUCCESSFULLY")
+                  print(f"APPOINTMENT_ID: {appointment[0]}")
+                  print(f"PATIENT_ID: {appointment[1]}")
+                  print(f"DOCTOR_ID: {appointment[2]}")
+                  print(f"APPOINTMENT_DATE: {appointment[3]}")
+                  print(f"APPOINTMENT_TIME: {appointment[4]}")
+                  print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                  print("="*35)
+                  break
+                elif choice==2:
+                   new_time=input("ENTER NEW APPOINTMENT TIME: ")
+                   appointment[4]=new_time
+                   print("APPOINTMENT TIME UPDATED SUCCESSFULLY")
+                   print(f"APPOINTMENT_ID: {appointment[0]}")
+                   print(f"PATIENT_ID: {appointment[1]}")
+                   print(f"DOCTOR_ID: {appointment[2]}")
+                   print(f"APPOINTMENT_DATE: {appointment[3]}")
+                   print(f"APPOINTMENT_TIME: {appointment[4]}")
+                   print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                   print("="*35)
+                   break
+                elif choice==3:
+                   new_status=input("ENTER NEW APPOINTMENT STATUS: ")
+                   appointment[5]=new_status
+                   print("APPOINTMENT STATUS UPDATED SUCCESSFULLY")
+                   print(f"APPOINTMENT_ID: {appointment[0]}")
+                   print(f"PATIENT_ID: {appointment[1]}")
+                   print(f"DOCTOR_ID: {appointment[2]}")
+                   print(f"APPOINTMENT_DATE: {appointment[3]}")
+                   print(f"APPOINTMENT_TIME: {appointment[4]}")
+                   print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                   print("="*35)
+                   break
+                else:
+                   print("ENTER A CHOICE BETWEEN(1-3)ONLY")
+                   continue
+            except ValueError:
+                print("ENTER A VALID VALUE")
+                continue
+    with open("appointments.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            "Appointment Id",
+            "Patient Id",
+            "Doctor Id",
+            "Appointment Date",
+            "Appointment Time",
+            "Appointment Status"   
+        ])
+        for appointment in appointments:
+            writer.writerow(appointment)
+                
+    
+    
+            
+        
+        
                     
         
     
