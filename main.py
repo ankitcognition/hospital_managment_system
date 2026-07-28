@@ -372,7 +372,7 @@ def add_doctor():
     except ValueError:
         print("ENTER A VALID DOCTOR ID")
         return
-    with open("doctors.csv","a") as file:
+    with open("doctors.csv","a",newline="") as file:
         writer=csv.writer(file)
         writer.writerow([
             doctor_id,
@@ -547,7 +547,7 @@ def delete_doctor():
             continue
          
 # appointment setup
-with open("appointment.csv","w",newline="") as file:
+with open("appointments.csv","w",newline="") as file:
     writer=csv.writer(file)
     
     writer.writerow([
@@ -558,8 +558,75 @@ with open("appointment.csv","w",newline="") as file:
         "Appointment Time",
         "Appointment Status"
     ])
+    
               
 # add appointment function
+def add_appointment():
+    try:
+       found_patient=False
+       found_doctor=False
+       appointment_id=int(input("ENTER APPOINTMENT ID: "))
+       with open("appointments.csv","r") as file:
+           reader=csv.reader(file)
+           next(reader)
+           appointments=list(reader)
+           for appointment in appointments:
+               if int(appointment[0])==appointment_id:
+                   print("APPOINTMENT ID ALREADY EXISTS")
+                   return
+    except ValueError:
+       print("ENTER VALID APPOINTMENT")
+       return
+                   
+    try:
+          patient_id=int(input("ENTER PATIENT ID: "))
+          with open("patients.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            patients=list(reader)
+            for patient in patients:
+                if int(patient[0])==patient_id:
+                    found_patient=True
+                    continue
+            if not found_patient:
+                print("PATIENT NOT FOUND")
+                return
+    except ValueError:
+           print("ENTER A VALID PATIENT ID")
+           return
+                
+    try:
+           doctor_id=int(input("ENTER DOCTOR ID: "))
+           with open("doctors.csv","r") as file:
+               reader=csv.reader(file)
+               next(reader)
+               doctors=list(reader)
+               for doctor in doctors:
+                   if int(doctor[0])==doctor_id:
+                       found_doctor=True
+                       continue
+               if not found_doctor:
+                   print("DOCTOR NOT FOUND")
+                   return
+    except ValueError:
+            print("ENTER A VALID DOCTOR ID ")
+            return
+                    
+    appointment_date=input("ENTER APPOINTMENT DATE: ")
+    appointment_time=input("ENTER APPOINTMENT TIME: ")
+    appointment_status="Scheduled"
+    with open("appointments.csv","a",newline="") as file:
+        writer=csv.writer(file)
+        writer.writerow([
+            appointment_id,
+            patient_id,
+            doctor_id,
+            appointment_date,
+            appointment_time,
+            appointment_status
+        ])
+        print("APPOINTMENT ADDED SUCCESSFULLY")  
+    
              
 
             

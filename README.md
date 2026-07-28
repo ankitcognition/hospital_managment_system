@@ -67,6 +67,17 @@ This project is part of my Python learning journey and is being developed increm
 * Rewrite doctor CSV header after deletion
 * Rewrite remaining doctor records back to CSV after deletion
 * Appointment CSV file setup
+* Appointment ID input
+* Appointment ID validation
+* Duplicate appointment ID prevention
+* Patient ID input and validation for appointment
+* Verify patient exists before booking
+* Doctor ID input and validation for appointment
+* Verify doctor exists before booking
+* Appointment date input
+* Appointment time input
+* Default appointment status ("Scheduled")
+* Append-based appointment record storage
 
 ## Possible Improvements
 
@@ -159,7 +170,11 @@ This project is being built to strengthen understanding of:
 * [x] Delete confirmation
 * [x] Rewrite CSV after doctor deletion
 * [x] Appointment CSV file setup
-* [ ] Appointment registration
+* [x] Appointment registration
+* [x] Appointment ID validation
+* [x] Duplicate appointment ID check
+* [x] Patient existence check
+* [x] Doctor existence check
 * [ ] View All Appointments
 * [ ] Search Appointment
 * [ ] Update Appointment
