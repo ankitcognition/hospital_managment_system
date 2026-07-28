@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Management Completed | Doctor Management Completed | Appointment Management In Progress**
+**Patient Management Completed | Doctor Management Completed | Appointment Management Completed**
 
 ## Completed Features
 
@@ -94,6 +94,15 @@ This project is part of my Python learning journey and is being developed increm
 * Display updated appointment information
 * Rewrite appointment CSV header after update
 * Rewrite updated appointment records back to CSV
+* Search appointment by ID for deletion
+* Display appointment details before deletion
+* Handle appointment not found during deletion
+* Delete confirmation before removing an appointment (Y/N)
+* Handle invalid confirmation input
+* Cancel deletion on user choice
+* Remove appointment record from list
+* Rewrite appointment CSV header after deletion
+* Rewrite remaining appointment records back to CSV after deletion
 
 ## Possible Improvements
 
@@ -203,7 +212,9 @@ This project is being built to strengthen understanding of:
 * [x] Update appointment time
 * [x] Update appointment status
 * [x] Rewrite appointment CSV after update
-* [ ] Delete Appointment
+* [x] Search appointment by ID for deletion
+* [x] Delete confirmation
+* [x] Rewrite CSV after appointment deletion
 * [ ] Billing System
 * [ ] Hospital Statistics
 * [ ] Final Testing

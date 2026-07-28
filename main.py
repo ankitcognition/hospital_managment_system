@@ -67,6 +67,7 @@ def view_patients():
             
         if not found:
             print("NO REGISTERED PATIENTS AT THE MOMENT ")
+            return
 
 # search patient
 def search_patient():
@@ -400,8 +401,10 @@ def search_doctor():
                     break
             if not found:
                 print("DOCTOR NOT FOUND")
+                return
     except ValueError:
         print("ENTER A VALID DOCTOR ID")
+        return
         
 # view doctors
 def view_doctors():
@@ -421,6 +424,7 @@ def view_doctors():
                 
             if not found:
                 print("NO REGISTERED DOCTORS AT THE MOMENT")
+                return
                 
 # update doctor
 def update_doctor():
@@ -523,6 +527,7 @@ def delete_doctor():
                     break
             if not found:
                 print("DOCTOR NOT FOUND")
+                return
     except ValueError:
          print("ENTER A VALID DOCTOR ID")
          return
@@ -651,6 +656,7 @@ def view_appointments():
                         
         if not found:
             print("NO REGISTERED APPOINTMENTS AT THE MOMENT")
+            return
             
 #search appointment function
 def search_appointment():
@@ -674,6 +680,7 @@ def search_appointment():
                     break
             if not found:
                 print("APPOINTMENT NOT FOUND")
+                return
     except ValueError:
         print("ENTER A VALID APPOINTMENT ID")
         return
@@ -770,6 +777,58 @@ def update_appointment():
         ])
         for appointment in appointments:
             writer.writerow(appointment)
+            
+# delete appointment function
+def delete_appointment():
+    try:
+        found=False
+        appointment_id=int(input("ENTER APPOINTMENT ID YOU WANT TO DELETE: "))
+        with open("appointments.csv","r") as file:
+                reader=csv.reader(file)
+                next(reader)
+                appointments=list(reader)
+                for appointment in appointments:
+                    if int(appointment[0])==appointment_id:
+                        found=True
+                        print(f"APPOINTMENT_ID: {appointment[0]}")
+                        print(f"PATIENT_ID: {appointment[1]}")
+                        print(f"DOCTOR_ID: {appointment[2]}")
+                        print(f"APPOINTMENT_DATE: {appointment[3]}")
+                        print(f"APPOINTMENT_TIME: {appointment[4]}")
+                        print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                        print("="*35)
+                        break
+                if not found:
+                        print("APPOINTMENT NOT FOUND")
+                        return
+    except ValueError:
+            print("ENTER A VALID APPOINTMENT ID")
+            return
+    while True:
+        choice=input("ARE YOU SURE YOU WANT TO DELETE THIS APPOINTMENT?(Y/N): ").upper()
+        if choice=="Y":
+            appointments.remove(appointment)
+            with open("appointments.csv", "w", newline="") as file:
+                writer = csv.writer(file)
+                writer.writerow([
+                    "Appointment Id",
+                    "Patient Id",
+                    "Doctor Id",
+                    "Appointment Date",
+                    "Appointment Time",
+                    "Appointment Status"   
+                    ])
+                for appointment in appointments:
+                    writer.writerow(appointment)
+                print("APPOINTMENT DELETED SUCCESSFULLY")
+                break
+        elif choice=="N":
+            print("DELETION CANCELLED")
+            break
+            
+        else:
+            print("ENTER EXACTLY(Y/N)")
+            continue
                 
     
     
