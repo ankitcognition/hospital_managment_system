@@ -649,6 +649,34 @@ def view_appointments():
         if not found:
             print("NO REGISTERED APPOINTMENTS AT THE MOMENT")
             
+#search appointment function
+def search_appointment():
+    try:
+        found=False
+        appointment_id=int(input("ENTER APPOINTMENT ID: "))
+        with open("appointments.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            for appointment in reader:
+                if int(appointment[0])==appointment_id:
+                    found=True
+                    print("="*35)
+                    print(f"APPOINTMENT_ID: {appointment[0]}")
+                    print(f"PATIENT_ID: {appointment[1]}")
+                    print(f"DOCTOR_ID: {appointment[2]}")
+                    print(f"APPOINTMENT_DATE: {appointment[3]}")
+                    print(f"APPOINTMENT_TIME: {appointment[4]}")
+                    print(f"APPOINTMENT_STATUS: {appointment[5]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("APPOINTMENT NOT FOUND")
+    except ValueError:
+        print("ENTER A VALID APPOINTMENT ID")
+        return
+
+                    
+        
     
     
              

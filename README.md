@@ -81,6 +81,9 @@ This project is part of my Python learning journey and is being developed increm
 * View all registered appointments
 * Handle empty appointment records
 * Formatted appointment information display
+* Search appointment by Appointment ID
+* Display searched appointment information
+* Handle appointment not found cases
 
 ## Possible Improvements
 
@@ -181,7 +184,8 @@ This project is being built to strengthen understanding of:
 * [x] View All Appointments
 * [x] Handle empty appointment records
 * [x] Formatted appointment information
-* [ ] Search Appointment
+* [x] Search Appointment
+* [x] Handle appointment not found
 * [ ] Update Appointment
 * [ ] Delete Appointment
 * [ ] Billing System
