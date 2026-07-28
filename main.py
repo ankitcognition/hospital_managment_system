@@ -625,7 +625,31 @@ def add_appointment():
             appointment_time,
             appointment_status
         ])
-        print("APPOINTMENT ADDED SUCCESSFULLY")  
+        print("APPOINTMENT ADDED SUCCESSFULLY")
+        
+# view appointments function
+def view_appointments():
+    found=False
+    with open("appointments.csv","r") as file:
+        reader=csv.reader(file)
+        next(reader)
+        print("="*35)
+        print("    REGISTERED APPOINTMENTS")
+        for appointment in reader:
+            found=True
+            print("="*35)
+            print(f"APPOINTMENT_ID: {appointment[0]}")
+            print(f"PATIENT_ID: {appointment[1]}")
+            print(f"DOCTOR_ID: {appointment[2]}")
+            print(f"APPOINTMENT_DATE: {appointment[3]}")
+            print(f"APPOINTMENT_TIME: {appointment[4]}")
+            print(f"APPOINTMENT_STATUS: {appointment[5]}")
+            print("="*35)
+                        
+        if not found:
+            print("NO REGISTERED APPOINTMENTS AT THE MOMENT")
+            
+    
     
              
 

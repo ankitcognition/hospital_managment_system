@@ -78,6 +78,9 @@ This project is part of my Python learning journey and is being developed increm
 * Appointment time input
 * Default appointment status ("Scheduled")
 * Append-based appointment record storage
+* View all registered appointments
+* Handle empty appointment records
+* Formatted appointment information display
 
 ## Possible Improvements
 
@@ -175,7 +178,9 @@ This project is being built to strengthen understanding of:
 * [x] Duplicate appointment ID check
 * [x] Patient existence check
 * [x] Doctor existence check
-* [ ] View All Appointments
+* [x] View All Appointments
+* [x] Handle empty appointment records
+* [x] Formatted appointment information
 * [ ] Search Appointment
 * [ ] Update Appointment
 * [ ] Delete Appointment
