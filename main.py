@@ -829,7 +829,19 @@ def delete_appointment():
         else:
             print("ENTER EXACTLY(Y/N)")
             continue
-                
+        
+# billing setup
+with open("bills.csv","w") as file:
+     writer=csv.writer(file)
+     writer.writerow([
+         "Bill Id",
+         "Patient Id",
+         "Doctor Id",
+         "Consultation Fee",
+         "Medicine Charges",
+         "Other Charges",
+         "Total Amount"
+    ])                 
     
     
             

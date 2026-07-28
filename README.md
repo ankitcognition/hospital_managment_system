@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Management Completed | Doctor Management Completed | Appointment Management Completed**
+**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System In Progress**
 
 ## Completed Features
 
@@ -103,18 +103,19 @@ This project is part of my Python learning journey and is being developed increm
 * Remove appointment record from list
 * Rewrite appointment CSV header after deletion
 * Rewrite remaining appointment records back to CSV after deletion
+* Bill CSV file setup
 
 ## Possible Improvements
 
 * Improve input validation
 * Add duplicate patient ID prevention
 * Add duplicate doctor ID prevention
-* Add billing system
 * Add hospital statistics
 * Improve date validation
 * Fix update doctor crash when doctor ID is not found
 * Fix delete doctor crash when doctor ID is not found
 * Fix appointment CSV setup overwriting existing data on every run
+* Fix billing CSV setup overwriting existing data on every run
 
 ## Technologies Used
 
@@ -215,7 +216,11 @@ This project is being built to strengthen understanding of:
 * [x] Search appointment by ID for deletion
 * [x] Delete confirmation
 * [x] Rewrite CSV after appointment deletion
-* [ ] Billing System
+* [x] Bill CSV file setup
+* [ ] Generate Bill
+* [ ] View All Bills
+* [ ] Search Bill
+* [ ] Delete Bill
 * [ ] Hospital Statistics
 * [ ] Final Testing
 * [ ] Documentation Improvements
