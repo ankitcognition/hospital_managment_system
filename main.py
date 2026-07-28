@@ -282,6 +282,7 @@ def update_patient():
          
     with open("patients.csv", "w", newline="") as file:
      writer = csv.writer(file)
+     
      writer.writerow([
         "Patient ID",
         "Name",
@@ -346,7 +347,7 @@ def delete_patient():
                 print("PATIENT DELETED SUCCESSFULLY")
                 break
         elif choice=="N":
-            print("DELETION CANCELED")
+            print("DELETION CANCELLED")
             break
             
         else:
@@ -539,13 +540,26 @@ def delete_doctor():
             print("DOCTOR DELETED SUCCESSFULLY")
             break
         elif choice=="N":
-            print("DELETION CANCELED")
+            print("DELETION CANCELLED")
             break
         else:
             print("ENTER EXACTLY (Y/N)")
             continue
          
-        
+# appointment setup
+with open("appointment.csv","w",newline="") as file:
+    writer=csv.writer(file)
+    
+    writer.writerow([
+        "Appointment Id",
+        "Patient Id",
+        "Doctor Id",
+        "Appointment Date",
+        "Appointment Time",
+        "Appointment Status"
+    ])
+              
+# add appointment function
              
 
             
