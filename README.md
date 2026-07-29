@@ -104,6 +104,18 @@ This project is part of my Python learning journey and is being developed increm
 * Rewrite appointment CSV header after deletion
 * Rewrite remaining appointment records back to CSV after deletion
 * Bill CSV file setup
+* Bill ID input
+* Bill ID validation
+* Duplicate bill ID prevention
+* Patient ID input and validation for billing
+* Verify patient exists before billing
+* Doctor ID input and validation for billing
+* Verify doctor exists before billing
+* Consultation fee input
+* Medicine charges input
+* Other charges input
+* Automatic total amount calculation
+* Append-based bill record storage
 
 ## Possible Improvements
 
@@ -116,6 +128,7 @@ This project is part of my Python learning journey and is being developed increm
 * Fix delete doctor crash when doctor ID is not found
 * Fix appointment CSV setup overwriting existing data on every run
 * Fix billing CSV setup overwriting existing data on every run
+* Add `newline=""` when appending to bills.csv to avoid blank rows on Windows
 
 ## Technologies Used
 
@@ -217,7 +230,12 @@ This project is being built to strengthen understanding of:
 * [x] Delete confirmation
 * [x] Rewrite CSV after appointment deletion
 * [x] Bill CSV file setup
-* [ ] Generate Bill
+* [x] Generate Bill
+* [x] Bill ID validation
+* [x] Duplicate bill ID check
+* [x] Patient existence check
+* [x] Doctor existence check
+* [x] Total amount calculation
 * [ ] View All Bills
 * [ ] Search Bill
 * [ ] Delete Bill

@@ -841,7 +841,91 @@ with open("bills.csv","w") as file:
          "Medicine Charges",
          "Other Charges",
          "Total Amount"
-    ])                 
+    ])
+
+# add bill
+def add_bill():
+    found_patient=False
+    found_doctor=False
+    found_bill=False
+    try:
+        bill_id=int(input("ENTER BILL ID: "))
+        with open("bills.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            bills=list(reader)
+            for bill in bills:
+                if int(bill[0])==bill_id:
+                    found_bill=True
+                    print("BILL ALREADY EXISTS")
+                    return                   
+  
+    except ValueError:
+        print("ENTER A VALID BILL ID")
+        return
+    
+    try:
+        patient_id=int(input("ENTER PATIENT ID: "))
+        with open("patients.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            patients=list(reader)
+            for patient in patients:
+                if int(patient[0])==patient_id:
+                    found_patient=True
+                    print("PATIENT FOUND")
+            if not found_patient:
+                print("PATIENT NOT FOUND")
+                return
+    except ValueError:
+        print(" ENTER A VALID PATIENT ID")
+        return
+        
+    try:
+        doctor_id=int(input("ENTER DOCTOR ID: "))
+        with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            doctors=list(reader)
+            for doctor in doctors:
+                if int(doctor[0])==doctor_id:
+                    found_doctor=True
+                    print("DOCTOR FOUND")
+            if not found_doctor:
+                print("DOCTOR NOT FOUND")
+                return
+    except ValueError:
+        print("ENTER A VALID DOCTOR ID")
+        return
+        
+    try:
+        consultation_fee=int(input("ENTER CONSULTATION FEE: "))
+        medicine_charges=int(input("ENTER MEDICINE CHARGES: "))
+        other_charges=int(input("ENTER OTHER CHARGES: "))
+        total_fee=consultation_fee+medicine_charges+other_charges
+        with open("bills.csv","a",newline="") as file:
+            writer=csv.writer(file)
+            writer.writerow([
+                bill_id,
+                patient_id,
+                doctor_id,
+                consultation_fee,
+                medicine_charges,
+                other_charges,
+                total_fee
+            ])                       
+    except ValueError:
+            print("ENTER A VALID VALUE IN REQUIRED FIELD")
+            return
+        
+    
+        
+        
+                    
+        
+        
+                            
+                         
     
     
             
