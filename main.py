@@ -939,7 +939,33 @@ def view_bills():
         if not found:
             print("NO REGISTERED BILLS AT THE MOMENT")
             return
-            
+        
+# search bill
+def search_bill():
+    try:
+        found=False
+        bill_id=int(input("ENTER THE BILL ID: "))
+        with open("bills.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            for bill in reader:
+                if int(bill[0])==bill_id:
+                    found=True
+                    print("="*35)
+                    print(f"BILL_ID: {bill[0]}")
+                    print(f"PATIENT_ID: {bill[1]}")
+                    print(f"DOCTOR_ID: {bill[2]}")
+                    print(f"CONSULTATION_FEE: {bill[3]}")
+                    print(f"MEDICINE_CHARGES: {bill[4]}")
+                    print(f"OTHER_CHARGES: {bill[5]}")
+                    print(f"TOTAL_AMOUNT: {bill[6]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("BILL NOT FOUND")
+    except ValueError:
+        print("ENTER A VALID BILL ID")
+        return           
             
             
         

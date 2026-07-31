@@ -119,6 +119,9 @@ This project is part of my Python learning journey and is being developed increm
 * View all registered bills
 * Handle empty bill records
 * Formatted bill information display
+* Search bill by Bill ID
+* Display searched bill information
+* Handle bill not found cases
 
 ## Possible Improvements
 
@@ -242,7 +245,8 @@ This project is being built to strengthen understanding of:
 * [x] View All Bills
 * [x] Handle empty bill records
 * [x] Formatted bill information
-* [ ] Search Bill
+* [x] Search Bill
+* [x] Handle bill not found
 * [ ] Delete Bill
 * [ ] Hospital Statistics
 * [ ] Final Testing
