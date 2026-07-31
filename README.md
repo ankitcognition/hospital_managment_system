@@ -116,6 +116,9 @@ This project is part of my Python learning journey and is being developed increm
 * Other charges input
 * Automatic total amount calculation
 * Append-based bill record storage
+* View all registered bills
+* Handle empty bill records
+* Formatted bill information display
 
 ## Possible Improvements
 
@@ -236,7 +239,9 @@ This project is being built to strengthen understanding of:
 * [x] Patient existence check
 * [x] Doctor existence check
 * [x] Total amount calculation
-* [ ] View All Bills
+* [x] View All Bills
+* [x] Handle empty bill records
+* [x] Formatted bill information
 * [ ] Search Bill
 * [ ] Delete Bill
 * [ ] Hospital Statistics

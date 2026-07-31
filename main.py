@@ -847,7 +847,6 @@ with open("bills.csv","w") as file:
 def add_bill():
     found_patient=False
     found_doctor=False
-    found_bill=False
     try:
         bill_id=int(input("ENTER BILL ID: "))
         with open("bills.csv","r") as file:
@@ -856,7 +855,6 @@ def add_bill():
             bills=list(reader)
             for bill in bills:
                 if int(bill[0])==bill_id:
-                    found_bill=True
                     print("BILL ALREADY EXISTS")
                     return                   
   
@@ -913,10 +911,37 @@ def add_bill():
                 medicine_charges,
                 other_charges,
                 total_fee
-            ])                       
+            ])
+            print("BILL ADDED SUCCESSFULLY")                      
     except ValueError:
             print("ENTER A VALID VALUE IN REQUIRED FIELD")
             return
+        
+# view bills
+def view_bills():
+    found=False
+    with open("bills.csv","r") as file:
+        reader=csv.reader(file)
+        next(reader)
+        print("="*35)
+        print("    REGISTERED BILLS")
+        for bill in reader:
+            found=True
+            print("="*35)
+            print(f"BILL_ID: {bill[0]}")
+            print(f"PATIENT_ID: {bill[1]}")
+            print(f"DOCTOR_ID: {bill[2]}")
+            print(f"CONSULTATION_FEE: {bill[3]}")
+            print(f"MEDICINE_CHARGES: {bill[4]}")
+            print(f"OTHER_CHARGES: {bill[5]}")
+            print(f"TOTAL_AMOUNT: {bill[6]}")
+            print("="*35)
+        if not found:
+            print("NO REGISTERED BILLS AT THE MOMENT")
+            return
+            
+            
+            
         
     
         
