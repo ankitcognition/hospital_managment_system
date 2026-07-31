@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System Completed**
+**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System Completed | Hospital Statistics Completed**
 
 ## Completed Features
 
@@ -131,6 +131,12 @@ This project is part of my Python learning journey and is being developed increm
 * Remove bill record from list
 * Rewrite bill CSV header after deletion
 * Rewrite remaining bill records back to CSV after deletion
+* Hospital statistics summary
+* Total registered patients count
+* Total registered doctors count
+* Total registered appointments count
+* Total registered bills count
+* Formatted statistics display
 
 ## Possible Improvements
 
@@ -258,7 +264,7 @@ This project is being built to strengthen understanding of:
 * [x] Search bill by ID for deletion
 * [x] Delete confirmation
 * [x] Rewrite CSV after bill deletion
-* [ ] Hospital Statistics
+* [x] Hospital Statistics
 * [ ] Final Testing
 * [ ] Documentation Improvements
 

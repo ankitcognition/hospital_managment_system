@@ -1023,6 +1023,39 @@ def delete_bill():
             print("ENTER EXACTLY(Y/N)")
             continue
         
+#hospital statistics
+def statistics():
+    with open("patients.csv","r") as file:
+        reader=csv.reader(file)
+        next(reader)
+        total_patients=sum(1 for row in reader)
+    with open("doctors.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            total_doctors=sum(1 for row in reader)
+    with open("appointments.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            total_appointments=sum(1 for row in reader)
+    with open("bills.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            total_bills=sum(1 for row in reader)
+            
+    print("="*35)
+    print("    HOSPITAL STATISTICS")
+    print("="*35)
+    print(f"TOTAL PATIENTS: {total_patients}")
+    print(f"TOTAL DOCTORS: {total_doctors}")
+    print(f"TOTAL APPOINTMENTS: {total_appointments}")
+    print(f"TOTAL BILLS: {total_bills}")
+    print("="*35)
+    
+    
+    
+
+    
+        
     
         
             
