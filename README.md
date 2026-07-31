@@ -1,159 +1,61 @@
 # Hospital Management System (Python)
 
-A console-based Hospital Management System built using Python.
+A console-based Hospital Management System built using Python and CSV file storage. Manage patients, doctors, appointments, and billing — all from the terminal.
 
-This project is part of my Python learning journey and is being developed incrementally to simulate real-world software development while improving programming and problem-solving skills.
+This project was built incrementally as a learning exercise to practice real-world program structure, file handling, and CRUD operations in Python.
 
-## Current Status
+## Overview
 
-**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System Completed | Hospital Statistics Completed**
+The system is organized into four core modules, each supporting full CRUD (Create, Read, Update, Delete) operations backed by its own CSV file:
 
-## Completed Features
+- **Patients** — registration, records, updates, deletion
+- **Doctors** — registration, records, updates, deletion
+- **Appointments** — booking, tracking, updates, cancellation (with patient/doctor validation)
+- **Billing** — bill generation, records, deletion (with automatic total calculation)
 
-* Patient registration
-* Patient ID input
-* Patient name input
-* Patient age input
-* Patient gender input
-* Patient phone number input
-* Patient blood group input
-* Patient disease input
-* Patient admission date input
-* Input validation using `try` / `except`
-* CSV file handling
-* Patient data storage using CSV
-* Append-based patient record storage
-* View all registered patients
-* Handle empty patient records
-* Formatted patient information display
-* Search patient by Patient ID
-* Display searched patient information
-* Handle patient not found cases
-* Update patient information
-* Search and edit existing patient records
-* Rewrite updated records back to CSV
-* Delete patient records by Patient ID
-* Delete confirmation before removing a patient
-* Rewrite remaining patient records back to CSV after deletion
-* Doctor CSV file setup
-* Doctor ID input
-* Doctor name input
-* Doctor specialization input
-* Doctor ID input validation
-* Append-based doctor record storage
-* Search doctor by Doctor ID
-* Display searched doctor information
-* Handle doctor not found cases
-* View all registered doctors
-* Handle empty doctor records
-* Display formatted doctor information
-* Search doctor by ID for update
-* Handle doctor not found during update
-* Display doctor menu (ID / Name / Specialization)
-* Update menu choice validation
-* Update doctor ID
-* Update doctor name
-* Update doctor specialization
-* Display updated doctor information
-* Rewrite doctor CSV header after update
-* Rewrite updated doctor records back to CSV
-* Search doctor by ID for deletion
-* Display doctor details before deletion
-* Handle doctor not found during deletion
-* Delete confirmation before removing a doctor (Y/N)
-* Handle invalid confirmation input
-* Cancel deletion on user choice
-* Remove doctor record from list
-* Rewrite doctor CSV header after deletion
-* Rewrite remaining doctor records back to CSV after deletion
-* Appointment CSV file setup
-* Appointment ID input
-* Appointment ID validation
-* Duplicate appointment ID prevention
-* Patient ID input and validation for appointment
-* Verify patient exists before booking
-* Doctor ID input and validation for appointment
-* Verify doctor exists before booking
-* Appointment date input
-* Appointment time input
-* Default appointment status ("Scheduled")
-* Append-based appointment record storage
-* View all registered appointments
-* Handle empty appointment records
-* Formatted appointment information display
-* Search appointment by Appointment ID
-* Display searched appointment information
-* Handle appointment not found cases
-* Search appointment by ID for update
-* Handle appointment not found during update
-* Display appointment update menu (Date / Time / Status)
-* Update menu choice validation
-* Update appointment date
-* Update appointment time
-* Update appointment status
-* Display updated appointment information
-* Rewrite appointment CSV header after update
-* Rewrite updated appointment records back to CSV
-* Search appointment by ID for deletion
-* Display appointment details before deletion
-* Handle appointment not found during deletion
-* Delete confirmation before removing an appointment (Y/N)
-* Handle invalid confirmation input
-* Cancel deletion on user choice
-* Remove appointment record from list
-* Rewrite appointment CSV header after deletion
-* Rewrite remaining appointment records back to CSV after deletion
-* Bill CSV file setup
-* Bill ID input
-* Bill ID validation
-* Duplicate bill ID prevention
-* Patient ID input and validation for billing
-* Verify patient exists before billing
-* Doctor ID input and validation for billing
-* Verify doctor exists before billing
-* Consultation fee input
-* Medicine charges input
-* Other charges input
-* Automatic total amount calculation
-* Append-based bill record storage
-* View all registered bills
-* Handle empty bill records
-* Formatted bill information display
-* Search bill by Bill ID
-* Display searched bill information
-* Handle bill not found cases
-* Search bill by ID for deletion
-* Display bill details before deletion
-* Handle bill not found during deletion
-* Delete confirmation before removing a bill (Y/N)
-* Handle invalid confirmation input
-* Cancel deletion on user choice
-* Remove bill record from list
-* Rewrite bill CSV header after deletion
-* Rewrite remaining bill records back to CSV after deletion
-* Hospital statistics summary
-* Total registered patients count
-* Total registered doctors count
-* Total registered appointments count
-* Total registered bills count
-* Formatted statistics display
+A **Hospital Statistics** view summarizes total counts across all four modules.
 
-## Possible Improvements
+## Features
 
-* Improve input validation
-* Add duplicate patient ID prevention
-* Add duplicate doctor ID prevention
-* Improve date validation
-* Fix update doctor crash when doctor ID is not found
-* Fix delete doctor crash when doctor ID is not found
-* Fix appointment CSV setup overwriting existing data on every run
-* Fix billing CSV setup overwriting existing data on every run
-* Add `newline=""` when appending to bills.csv to avoid blank rows on Windows
+### Patient Management
+- Register patients (ID, name, age, gender, phone, blood group, disease, admission date)
+- View all patients / handle empty records
+- Search patient by ID
+- Update patient information (any field)
+- Delete patient with confirmation
+
+### Doctor Management
+- Register doctors (ID, name, specialization)
+- View all doctors / handle empty records
+- Search doctor by ID
+- Update doctor information (any field)
+- Delete doctor with confirmation
+
+### Appointment Management
+- Book appointments, linked to existing patient and doctor records
+- Duplicate appointment ID prevention
+- Validates that referenced patient and doctor exist before booking
+- View all appointments / handle empty records
+- Search appointment by ID
+- Update appointment date, time, or status
+- Delete appointment with confirmation
+
+### Billing System
+- Generate bills, linked to existing patient and doctor records
+- Duplicate bill ID prevention
+- Validates that referenced patient and doctor exist before billing
+- Automatic total amount calculation (consultation + medicine + other charges)
+- View all bills / handle empty records
+- Search bill by ID
+- Delete bill with confirmation
+
+### Hospital Statistics
+- Total registered patients, doctors, appointments, and bills at a glance
 
 ## Technologies Used
 
-* Python 3
-* CSV
+- Python 3
+- CSV module (file-based data storage, no external database)
 
 ## How to Run
 
@@ -175,98 +77,41 @@ cd Hospital-Management-System
 python main.py
 ```
 
+## Testing
+
+All 15 core functions were tested against 46 scenarios, covering valid input, invalid input (non-numeric IDs), not-found records, duplicate IDs, and delete confirm/cancel paths. All scenarios completed without crashing, and output data was verified against expected CSV state.
+
+## Known Issues / Possible Improvements
+
+- **CSV setup blocks overwrite existing data on every run.** The setup code for each CSV file currently runs unconditionally in `"w"` mode, so restarting the program erases all records. Should be wrapped in an `if not os.path.exists(...)` check.
+- No duplicate ID prevention on patient or doctor registration (appointments and bills already have this).
+- Minimal ID validation — no check for negative numbers or zero.
+- Free-text date/time fields with no format validation.
+- No appointment or bill editing beyond the fields currently supported (e.g., no "Update Bill").
+
+## Planned Additions
+
+- Fix CSV overwrite-on-startup issue
+- Add duplicate ID prevention for patients and doctors
+- Improve date/time input validation
+- Final documentation pass
+
 ## Learning Objectives
 
-This project is being built to strengthen understanding of:
+This project was built to strengthen understanding of:
 
-* Functions
-* User Input
-* Conditional Statements
-* Exception Handling
-* File Handling
-* CSV Module
-* Lists
-* Variables and Data Types
-* CRUD Operations
-* Input Validation
-* Problem Solving
-* Program Design
-
-## Development Progress
-
-* [x] Project setup
-* [x] Patient CSV file setup
-* [x] Patient registration
-* [x] Patient input handling
-* [x] Input validation
-* [x] CSV data storage
-* [x] View All Patients
-* [x] Handle empty patient records
-* [x] Formatted patient information
-* [x] Search Patient
-* [x] Handle patient not found
-* [x] Update Patient
-* [x] Delete Patient
-* [x] Delete confirmation
-* [x] Rewrite CSV after patient deletion
-* [x] Doctor CSV file setup
-* [x] Doctor registration
-* [x] Doctor input validation
-* [x] Doctor CSV data storage
-* [x] Search Doctor
-* [x] Handle doctor not found
-* [x] View All Doctors
-* [x] Handle empty doctor records
-* [x] Formatted doctor information
-* [x] Search doctor by ID for update
-* [x] Handle doctor not found during update
-* [x] Doctor update menu
-* [x] Update doctor ID
-* [x] Update doctor name
-* [x] Update doctor specialization
-* [x] Rewrite doctor CSV after update
-* [x] Search doctor by ID for deletion
-* [x] Delete confirmation
-* [x] Rewrite CSV after doctor deletion
-* [x] Appointment CSV file setup
-* [x] Appointment registration
-* [x] Appointment ID validation
-* [x] Duplicate appointment ID check
-* [x] Patient existence check
-* [x] Doctor existence check
-* [x] View All Appointments
-* [x] Handle empty appointment records
-* [x] Formatted appointment information
-* [x] Search Appointment
-* [x] Handle appointment not found
-* [x] Search appointment by ID for update
-* [x] Handle appointment not found during update
-* [x] Appointment update menu
-* [x] Update appointment date
-* [x] Update appointment time
-* [x] Update appointment status
-* [x] Rewrite appointment CSV after update
-* [x] Search appointment by ID for deletion
-* [x] Delete confirmation
-* [x] Rewrite CSV after appointment deletion
-* [x] Bill CSV file setup
-* [x] Generate Bill
-* [x] Bill ID validation
-* [x] Duplicate bill ID check
-* [x] Patient existence check
-* [x] Doctor existence check
-* [x] Total amount calculation
-* [x] View All Bills
-* [x] Handle empty bill records
-* [x] Formatted bill information
-* [x] Search Bill
-* [x] Handle bill not found
-* [x] Search bill by ID for deletion
-* [x] Delete confirmation
-* [x] Rewrite CSV after bill deletion
-* [x] Hospital Statistics
-* [ ] Final Testing
-* [ ] Documentation Improvements
+- Functions
+- User input handling
+- Conditional statements
+- Exception handling
+- File handling
+- CSV module
+- Lists
+- Variables and data types
+- CRUD operations
+- Input validation
+- Problem solving
+- Program design
 
 ## License
 
