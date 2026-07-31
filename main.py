@@ -963,9 +963,72 @@ def search_bill():
                     break
             if not found:
                 print("BILL NOT FOUND")
+                return
     except ValueError:
         print("ENTER A VALID BILL ID")
-        return           
+        return
+    
+# delete bill
+def delete_bill():
+    try:
+        found=False
+        bill_id=int(input("ENTER THE BILL ID: "))
+        with open("bills.csv","r") as file:
+            reader=csv.reader(file)
+            next(reader)
+            bills=list(reader)
+            for bill in bills:
+                if int(bill[0])==bill_id:
+                    found=True
+                    print("="*35)
+                    print(f"BILL_ID: {bill[0]}")
+                    print(f"PATIENT_ID: {bill[1]}")
+                    print(f"DOCTOR_ID: {bill[2]}")
+                    print(f"CONSULTATION_FEE: {bill[3]}")
+                    print(f"MEDICINE_CHARGES: {bill[4]}")
+                    print(f"OTHER_CHARGES: {bill[5]}")
+                    print(f"TOTAL_AMOUNT: {bill[6]}")
+                    print("="*35)
+                    break
+            if not found:
+                print("BILL NOT FOUND")
+                return
+    except ValueError:
+        print("ENTER A VALID BILL ID")
+        return
+    
+    while True:
+        choice=input("DO YOU REALLY WANT TO DELETE THE BILL?(Y/N): ").upper()
+        if choice=="Y":
+            bills.remove(bill)
+            with open("bills.csv","w",newline="") as file:
+                    writer=csv.writer(file)
+                    writer.writerow([
+                        "Bill Id",
+                        "Patient Id",
+                        "Doctor Id",
+                        "Consultation Fee",
+                        "Medicine Charges",
+                        "Other Charges",
+                        "Total Amount"                       
+                    ])
+                    for bill in bills:
+                        writer.writerow(bill)
+            print("BILL DELETED SUCCESSFULLY")
+            break
+        elif choice=="N":
+            print("DELETION CANCELLED")
+            break
+        else:
+            print("ENTER EXACTLY(Y/N)")
+            continue
+        
+    
+        
+            
+            
+        
+                  
             
             
         

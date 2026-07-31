@@ -6,7 +6,7 @@ This project is part of my Python learning journey and is being developed increm
 
 ## Current Status
 
-**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System In Progress**
+**Patient Management Completed | Doctor Management Completed | Appointment Management Completed | Billing System Completed**
 
 ## Completed Features
 
@@ -122,13 +122,21 @@ This project is part of my Python learning journey and is being developed increm
 * Search bill by Bill ID
 * Display searched bill information
 * Handle bill not found cases
+* Search bill by ID for deletion
+* Display bill details before deletion
+* Handle bill not found during deletion
+* Delete confirmation before removing a bill (Y/N)
+* Handle invalid confirmation input
+* Cancel deletion on user choice
+* Remove bill record from list
+* Rewrite bill CSV header after deletion
+* Rewrite remaining bill records back to CSV after deletion
 
 ## Possible Improvements
 
 * Improve input validation
 * Add duplicate patient ID prevention
 * Add duplicate doctor ID prevention
-* Add hospital statistics
 * Improve date validation
 * Fix update doctor crash when doctor ID is not found
 * Fix delete doctor crash when doctor ID is not found
@@ -247,7 +255,9 @@ This project is being built to strengthen understanding of:
 * [x] Formatted bill information
 * [x] Search Bill
 * [x] Handle bill not found
-* [ ] Delete Bill
+* [x] Search bill by ID for deletion
+* [x] Delete confirmation
+* [x] Rewrite CSV after bill deletion
 * [ ] Hospital Statistics
 * [ ] Final Testing
 * [ ] Documentation Improvements
