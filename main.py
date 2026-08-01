@@ -1,5 +1,194 @@
 import csv
 
+def choice():
+    
+ while True:
+    print("=" * 35)
+    print(" HOSPITAL MANAGEMENT SYSTEM ")
+    print("=" * 35)
+    print("1) PATIENT MANAGEMENT")
+    print("2) DOCTOR MANAGEMENT")
+    print("3) APPOINTMENT MANAGEMENT")
+    print("4) BILLING MANAGEMENT")
+    print("5) HOSPITAL STATISTICS")
+    print("6) EXIT")
+    print("=" * 35)
+
+    try:
+        choice=int(input("ENTER YOUR CHOICE(1-6): "))
+
+        if choice==1:
+            while True:
+                print("=" * 35)
+                print("    PATIENT MANAGEMENT")
+                print("=" * 35)
+                print("1) ADD PATIENT")
+                print("2) VIEW PATIENTS")
+                print("3) SEARCH PATIENT")
+                print("4) UPDATE PATIENT")
+                print("5) DELETE PATIENT")
+                print("6) BACK")
+                print("=" * 35)
+
+                try:
+                    patient_choice=int(input("ENTER YOUR CHOICE(1-6): "))
+
+                    if patient_choice==1:
+                        add_patient()
+
+                    elif patient_choice==2:
+                        view_patients()
+
+                    elif patient_choice==3:
+                        search_patient()
+
+                    elif patient_choice==4:
+                        update_patient()
+
+                    elif patient_choice==5:
+                        delete_patient()
+
+                    elif patient_choice==6:
+                        break
+
+                    else:
+                        print("ENTER A CHOICE BETWEEN(1-6)")
+
+                except ValueError:
+                    print("ENTER A VALID VALUE")
+                    
+        elif choice==2:
+            while True:
+                print("=" * 35)
+                print("    DOCTOR MANAGEMENT")
+                print("=" * 35)
+                print("1) ADD DOCTOR")
+                print("2) VIEW DOCTORS")
+                print("3) SEARCH DOCTOR")
+                print("4) UPDATE DOCTOR")
+                print("5) DELETE DOCTOR")
+                print("6) BACK")
+                print("=" * 35)
+
+                try:
+                    doctor_choice=int(input("ENTER YOUR CHOICE(1-6): "))
+
+                    if doctor_choice==1:
+                        add_doctor()
+
+                    elif doctor_choice==2:
+                        view_doctors()
+
+                    elif doctor_choice==3:
+                        search_doctor()
+
+                    elif doctor_choice==4:
+                        update_doctor()
+
+                    elif doctor_choice==5:
+                        delete_doctor()
+
+                    elif doctor_choice==6:
+                        break
+
+                    else:
+                        print("ENTER A CHOICE BETWEEN(1-6)")
+
+                except ValueError:
+                    print("ENTER A VALID VALUE")
+
+        elif choice==3:
+            while True:
+                print("=" * 35)
+                print("  APPOINTMENT MANAGEMENT")
+                print("=" * 35)
+                print("1) ADD APPOINTMENT")
+                print("2) VIEW APPOINTMENTS")
+                print("3) SEARCH APPOINTMENT")
+                print("4) UPDATE APPOINTMENT")
+                print("5) DELETE APPOINTMENT")
+                print("6) BACK")
+                print("=" * 35)
+
+                try:
+                    appointment_choice=int(input("ENTER YOUR CHOICE(1-6): "))
+
+                    if appointment_choice==1:
+                        add_appointment()
+
+                    elif appointment_choice==2:
+                        view_appointments()
+
+                    elif appointment_choice==3:
+                        search_appointment()
+
+                    elif appointment_choice==4:
+                        update_appointment()
+
+                    elif appointment_choice==5:
+                        delete_appointment()
+
+                    elif appointment_choice==6:
+                        break
+
+                    else:
+                        print("ENTER A CHOICE BETWEEN(1-6)")
+
+                except ValueError:
+                    print("ENTER A VALID VALUE")
+
+        elif choice==4:
+            while True:
+                print("=" * 35)
+                print("    BILLING MANAGEMENT")
+                print("=" * 35)
+                print("1) ADD BILL")
+                print("2) VIEW BILLS")
+                print("3) SEARCH BILL")
+                print("4) DELETE BILL")
+                print("5) BACK")
+                print("=" * 35)
+
+                try:
+                    bill_choice=int(input("ENTER YOUR CHOICE(1-5): "))
+
+                    if bill_choice==1:
+                        add_bill()
+
+                    elif bill_choice==2:
+                        view_bills()
+
+                    elif bill_choice==3:
+                        search_bill()
+
+                    elif bill_choice==4:
+                        delete_bill()
+
+                    elif bill_choice==5:
+                        break
+
+                    else:
+                        print("ENTER A CHOICE BETWEEN(1-5)")
+
+                except ValueError:
+                    print("ENTER A VALID VALUE")
+
+        elif choice==5:
+            statistics()
+
+        elif choice==6:
+            print("=" * 35)
+            print("THANK YOU FOR USING")
+            print("HOSPITAL MANAGEMENT SYSTEM")
+            print("=" * 35)
+            break
+
+        else:
+            print("ENTER A CHOICE BETWEEN(1-6)")
+
+    except ValueError:
+        print("ENTER A VALID VALUE")
+
 # patients setup
 with open("patients.csv", "w", newline="") as file:
     writer = csv.writer(file)
@@ -1050,6 +1239,8 @@ def statistics():
     print(f"TOTAL APPOINTMENTS: {total_appointments}")
     print(f"TOTAL BILLS: {total_bills}")
     print("="*35)
+    
+choice()
     
     
     
